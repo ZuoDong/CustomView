@@ -27,6 +27,8 @@ class XformodeView:View{
     private lateinit var BmpDST:Bitmap
     private lateinit var BmpSRC: Bitmap
     private lateinit var BmpRevert: Bitmap
+    private val WRAP_WIDTH:Int by lazy { BmpSRC.width }
+    private val WRAP_HEIGHT: Int by lazy { BmpSRC.height * 2 }
 
     private fun initView() {
         setLayerType(View.LAYER_TYPE_SOFTWARE,null)
@@ -40,6 +42,22 @@ class XformodeView:View{
         BmpRevert = Bitmap.createBitmap(BmpSRC, 0, 0, BmpSRC.width, BmpSRC.height, matrix, true)
     }
 
+    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec)
+        val width = MeasureSpec.getSize(widthMeasureSpec);
+        val widthMode = MeasureSpec.getMode(widthMeasureSpec);
+        val height = MeasureSpec.getSize(heightMeasureSpec);
+        val heightMode = MeasureSpec.getMode(heightMeasureSpec);
+
+        if (widthMode == MeasureSpec.AT_MOST && heightMode == MeasureSpec.AT_MOST) {
+            setMeasuredDimension(WRAP_WIDTH, WRAP_HEIGHT)
+        } else if (widthMode == MeasureSpec.AT_MOST) {
+            setMeasuredDimension(WRAP_WIDTH, height)
+        } else if (heightMode == MeasureSpec.AT_MOST) {
+            setMeasuredDimension(width, WRAP_HEIGHT)
+        }
+    }
+
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
 
@@ -51,7 +69,7 @@ class XformodeView:View{
         canvas.translate(0F, BmpSRC.height.toFloat())
 
         canvas.drawBitmap(BmpDST, 0F, 0F, mBitPaint)
-        mBitPaint.xfermode = PorterDuffXfermode(PorterDuff.Mode.SRC_ATOP)
+        mBitPaint.xfermode = PorterDuffXfermode(PorterDuff.Mode.SRC_IN)
         canvas.drawBitmap(BmpRevert, 0F, 0F, mBitPaint)
 
         mBitPaint.xfermode = null

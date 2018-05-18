@@ -1,8 +1,6 @@
 package com.dong.customviews.utils
 
-import android.graphics.Bitmap
-import android.graphics.Canvas
-import android.graphics.PixelFormat
+import android.graphics.*
 import android.graphics.drawable.Drawable
 
 /**
@@ -23,4 +21,16 @@ fun Drawable.drawableToBitmap(w:Int,h:Int): Bitmap {
     // 把 drawable 内容画到画布中
     this.draw(canvas)
     return bitmap
+}
+
+fun drawTextBitmap(w:Int,h:Int,s:String):Bitmap{
+    val bitmap = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888)
+    val paint = Paint()
+    paint.color = Color.WHITE
+    paint.style = Paint.Style.FILL
+    paint.strokeWidth = 50F
+    paint.textSize = 150F
+    val canvas = Canvas(bitmap)
+    canvas.drawText(s,0F,h.toFloat()/2,paint)
+    return  bitmap
 }

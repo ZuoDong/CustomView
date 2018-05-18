@@ -6,7 +6,34 @@
     android:layout_height="match_parent"
     tools:context="com.dong.customviews.xformode.XforModeActivity">
 
-    <com.dong.customviews.xformode.XformodeView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="图片倒影"/>
+
+            <com.dong.customviews.xformode.XformodeView
+                android:layout_width="wrap_content"
+                android:layout_height="630px" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="波浪文字"/>
+
+            <com.dong.customviews.xformode.WaveTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/black"/>
+        </LinearLayout>
+    </ScrollView>
 </android.support.constraint.ConstraintLayout>
