@@ -60,6 +60,7 @@ class FlowLayout:ViewGroup{
                 width = Math.max(width,lineWidth)
                 height += lineHeight
             }
+
         }
 
         setMeasuredDimension(if(widthMode == MeasureSpec.EXACTLY) widthSize else width,if(heightMode == MeasureSpec.EXACTLY) heightSize else height)
