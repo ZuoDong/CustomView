@@ -17,7 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".xformode.XforModeActivity" />
-        <activity android:name=".redpoint.RedPointActivity"></activity>
+        <activity android:name=".redpoint.RedPointActivity" />
+        <activity android:name=".flowlayout.FlowLayoutActivity"></activity>
     </application>
 
 </manifest>

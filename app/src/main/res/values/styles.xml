@@ -8,4 +8,12 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="flow_item_bg">
+        <item name="android:background">@drawable/flow_bg</item>
+        <item name="android:padding">5dp</item>
+        <item name="android:layout_margin">10dp</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textSize">25sp</item>
+    </style>
+
 </resources>

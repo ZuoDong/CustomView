@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.TextView
+import com.dong.customviews.flowlayout.FlowLayoutActivity
 import com.dong.customviews.redpoint.RedPointActivity
 import com.dong.customviews.xformode.XforModeActivity
 import kotlinx.android.synthetic.main.activity_main.*
@@ -22,6 +23,7 @@ class MainActivity : AppCompatActivity() {
 
         datas.add(ItemBean("Xformode", XforModeActivity::class.java))
         datas.add(ItemBean("拖动红点",RedPointActivity::class.java))
+        datas.add(ItemBean("标签布局",FlowLayoutActivity::class.java))
 
         list_view.adapter = object :BaseAdapter(){
             override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
