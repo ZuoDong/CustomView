@@ -42,8 +42,8 @@ class FlowLayout:ViewGroup{
             val child = getChildAt(index)
             measureChild(child,widthMeasureSpec,heightMeasureSpec)
             val params = child.layoutParams as MarginLayoutParams
-            var childWidth = child.measuredWidth + params.leftMargin + params.rightMargin
-            var childHeight = child.measuredHeight + params.topMargin + params.bottomMargin
+            val childWidth = child.measuredWidth + params.leftMargin + params.rightMargin
+            val childHeight = child.measuredHeight + params.topMargin + params.bottomMargin
 
             if(lineWidth + childWidth > widthSize){
                 width = Math.max(lineWidth,childWidth)
@@ -76,8 +76,8 @@ class FlowLayout:ViewGroup{
         (0 until childCount).forEach { index ->
             val child = getChildAt(index)
             val params = child.layoutParams as MarginLayoutParams
-            var childWidth = child.measuredWidth + params.leftMargin + params.rightMargin
-            var childHeight = child.measuredHeight + params.topMargin + params.bottomMargin
+            val childWidth = child.measuredWidth + params.leftMargin + params.rightMargin
+            val childHeight = child.measuredHeight + params.topMargin + params.bottomMargin
 
             if(lineWidth + childWidth > measuredWidth){
                 //如果换行,当前控件将跑到下一行，从最左边开始，所以left就是0，而top则需要加上上一行的行高，才是这个控件的top点;

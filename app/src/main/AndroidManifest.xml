@@ -18,7 +18,8 @@
         </activity>
         <activity android:name=".xformode.XforModeActivity" />
         <activity android:name=".redpoint.RedPointActivity" />
-        <activity android:name=".flowlayout.FlowLayoutActivity"></activity>
+        <activity android:name=".flowlayout.FlowLayoutActivity" />
+        <activity android:name=".tickview.TickActivity"></activity>
     </application>
 
 </manifest>
