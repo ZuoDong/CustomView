@@ -19,7 +19,8 @@
         <activity android:name=".xformode.XforModeActivity" />
         <activity android:name=".redpoint.RedPointActivity" />
         <activity android:name=".flowlayout.FlowLayoutActivity" />
-        <activity android:name=".tickview.TickActivity"></activity>
+        <activity android:name=".tickview.TickActivity" />
+        <activity android:name=".polygonimageview.PolygonActivity"></activity>
     </application>
 
 </manifest>

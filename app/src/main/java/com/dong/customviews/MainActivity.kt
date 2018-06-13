@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.TextView
 import com.dong.customviews.flowlayout.FlowLayoutActivity
+import com.dong.customviews.polygonimageview.PolygonActivity
 import com.dong.customviews.redpoint.RedPointActivity
 import com.dong.customviews.tickview.TickActivity
 import com.dong.customviews.xformode.XforModeActivity
@@ -26,6 +27,7 @@ class MainActivity : AppCompatActivity() {
         datas.add(ItemBean("拖动红点",RedPointActivity::class.java))
         datas.add(ItemBean("标签布局",FlowLayoutActivity::class.java))
         datas.add(ItemBean("TickView",TickActivity::class.java))
+        datas.add(ItemBean("多边形",PolygonActivity::class.java))
 
         list_view.adapter = object :BaseAdapter(){
             override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {

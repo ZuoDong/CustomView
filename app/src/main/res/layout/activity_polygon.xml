@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.dong.customviews.polygonimageview.PolygonActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.dong.customviews.polygonimageview.PolygonImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:src="@mipmap/soho"
+                app:poly_border="true"
+                app:poly_border_color="@android:color/holo_red_light"
+                app:poly_border_width="5dp"
+                app:poly_vertices="0" />
+
+            <com.dong.customviews.polygonimageview.PolygonImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:src="@mipmap/soho"
+                app:poly_vertices="1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.dong.customviews.polygonimageview.PolygonImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:src="@mipmap/soho"
+                app:poly_border="true"
+                app:poly_border_color="@android:color/holo_green_dark"
+                app:poly_border_width="5dp"
+                app:poly_corner_radius="10"
+                app:poly_vertices="2" />
+
+            <com.dong.customviews.polygonimageview.PolygonImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:src="@mipmap/soho"
+                app:poly_border="true"
+                app:poly_border_color="@android:color/holo_green_dark"
+                app:poly_border_width="5dp"
+                app:poly_corner_radius="10"
+                app:poly_rotation_angle="90"
+                app:poly_vertices="6" />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
