@@ -20,7 +20,8 @@
         <activity android:name=".redpoint.RedPointActivity" />
         <activity android:name=".flowlayout.FlowLayoutActivity" />
         <activity android:name=".tickview.TickActivity" />
-        <activity android:name=".polygonimageview.PolygonActivity"></activity>
+        <activity android:name=".polygonimageview.PolygonActivity" />
+        <activity android:name=".LeafLoading.LeafLoadingActivity"></activity>
     </application>
 
 </manifest>

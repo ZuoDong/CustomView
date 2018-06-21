@@ -1,5 +1,6 @@
 package com.dong.customviews.utils
 
+import android.content.Context
 import android.graphics.*
 import android.graphics.drawable.Drawable
 
@@ -34,3 +35,5 @@ fun drawTextBitmap(w:Int,h:Int,s:String):Bitmap{
     canvas.drawText(s,0F,h.toFloat()/2,paint)
     return  bitmap
 }
+
+fun Context.dp2px(dp:Float):Float = resources.displayMetrics.density * dp + 0.5f
