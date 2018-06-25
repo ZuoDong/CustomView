@@ -23,7 +23,7 @@ class LeafLoadingView: View {
         initPaint()
         initBitmap()
         startAnim()
-        genertateLeafs()
+        generateLeafs()
     }
 
     private val TAG:String = "LeafLoadingView"
@@ -48,7 +48,7 @@ class LeafLoadingView: View {
     private lateinit var fengRect:Rect
     private val fengMatrix:Matrix = Matrix() //风扇矩阵，平移，旋转
     private var totalValue:Int = 0
-    private var currentProgress:Int = 40
+    private var currentProgress:Int = 0
     private var currentValue:Int = 0
     private var dRotate:Int = 0
     private lateinit var anim:ValueAnimator
@@ -57,7 +57,13 @@ class LeafLoadingView: View {
     private var mPath = Path()
     private var progressRadius = 0
     private val random = Random()
-
+    private val MAX_LEAFS = 8
+    private val LEAF_FLOAT_TIME:Long = 2000L
+    private var mAddTime:Long = 0L
+    private val leafInfos = ArrayList<Leaf>()
+    private var leafWidth:Float = 0f
+    private var leafHeight:Float = 0f
+    private val rotateCounts: Int = 36
 
     private fun initPaint(){
         mBgPaint.isAntiAlias = true
@@ -91,6 +97,11 @@ class LeafLoadingView: View {
 
         //指定Bitmap宽高
         fengshanBitmap = ThumbnailUtils.extractThumbnail(fengshanBitmap, ((mRadius - borderWidth - PADDING_FENG) * 2).toInt(), ((mRadius - borderWidth - PADDING_FENG) * 2).toInt())
+
+        leafHeight = mRadius / 3
+        leafWidth = leafBitmap.width.toFloat() / leafBitmap.height * leafHeight
+        leafBitmap = ThumbnailUtils.extractThumbnail(leafBitmap, leafWidth.toInt(), leafHeight.toInt())
+
         fengRect = Rect((w - mRadius * 2 + borderWidth).toInt() + PADDING_FENG,
                 borderWidth.toInt() + PADDING_FENG,
                 (w - borderWidth).toInt() - PADDING_FENG,
@@ -102,6 +113,8 @@ class LeafLoadingView: View {
     }
 
     override fun onDraw(canvas: Canvas?) {
+        currentValue = (currentProgress.toFloat() / 100 * totalValue).toInt()
+
         mBgPaint.color = bg_main_color
         mBgPaint.style = Paint.Style.FILL
         canvas?.drawRoundRect(bgRectF,mRadius,mRadius,mBgPaint)
@@ -120,34 +133,69 @@ class LeafLoadingView: View {
         mBgPaint.style = Paint.Style.FILL
         canvas?.drawCircle(px,py,mRadius - borderWidth,mBgPaint)
 
-        fengMatrix.postRotate(Math.toDegrees(10.0).toFloat(),px , py)
+        fengMatrix.postRotate(Math.toDegrees(360.0 / rotateCounts).toFloat(),px , py)
         canvas?.drawBitmap(fengshanBitmap,fengMatrix,mBgPaint)
     }
 
     private fun drawLeafs(canvas: Canvas?) {
         val currentTime = System.currentTimeMillis()
         for(leaf in leafInfos){
-            getLeafLocation(leaf,currentTime)
+            if(currentTime > leaf.startTime && leaf.startTime != 0L){
+                getLeafLocation(leaf,currentTime)
+
+                if(leaf.x >= currentValue - leafWidth / 2){
+                    canvas?.save()
+                    val matrix = Matrix()
+                    val transX = borderWidth + leaf.x
+                    val transY = borderWidth + leaf.y
+                    matrix.postTranslate(transX,transY)
+                    val rotateFraction = (currentTime - leaf.startTime) % LEAF_FLOAT_TIME / LEAF_FLOAT_TIME.toFloat()
+                    val angle = rotateFraction * 360
+                    val rotate = if(leaf.rotateDirection == 0) angle + leaf.rotateAngle else -angle + leaf.rotateAngle
+                    matrix.postRotate(rotate,transX + leafWidth / 2,transY + leafHeight / 2)
+                    canvas?.drawBitmap(leafBitmap,matrix,mProgressPaint)
+                    canvas?.restore()
+                }
+            }
         }
     }
 
     private fun getLeafLocation(leaf: Leaf, currentTime: Long) {
+        val intervalTime = currentTime - leaf.startTime
+        if(intervalTime < 0){
+            return
+        }else if(intervalTime > LEAF_FLOAT_TIME){
+            leaf.startTime = System.currentTimeMillis() + random.nextInt(LEAF_FLOAT_TIME.toInt())
+        }
+        val fraction = intervalTime.toFloat() / LEAF_FLOAT_TIME
+        leaf.x = (totalValue - totalValue * fraction).toInt()
+        leaf.y = getLocationY(leaf)
+    }
 
+    private fun getLocationY(leaf: Leaf): Int {
+        // y = A(wx+Q)+h
+        val w = Math.PI * 2 / totalValue
+        return ((13 * Math.sin(w * leaf.x)) + progressRadius * 2 / 3).toInt()
     }
 
     private fun startAnim(){
-        anim = ValueAnimator.ofInt(0, 90)
-        anim.duration = 5000
+        anim = ValueAnimator.ofInt(0, rotateCounts)
+        anim.duration = 3000
         anim.repeatCount = ValueAnimator.INFINITE
         anim.interpolator = LinearInterpolator()
         anim.addUpdateListener { animation ->
             val rotate = animation.animatedValue as Int
             if(rotate != dRotate){
                 dRotate = animation.animatedValue as Int
+                if(currentProgress >= 100 || currentProgress < 0){
+                    currentProgress = 0
+                }else{
+                    currentProgress += 1
+                }
                 postInvalidate()
             }
         }
-//        anim.start()
+        anim.start()
     }
 
     override fun onDetachedFromWindow() {
@@ -159,7 +207,6 @@ class LeafLoadingView: View {
 
     private fun generateProgressPath(){
         mPath.reset()
-        currentValue = (currentProgress.toFloat() / 100 * totalValue).toInt()
         if(currentValue <= progressRadius){
             val angle = Math.toDegrees(Math.acos((progressRadius - currentValue).toDouble() / progressRadius))
             mPath.addArc(leftRectF, (180 - angle).toFloat(), (angle * 2).toFloat())
@@ -171,12 +218,7 @@ class LeafLoadingView: View {
         mPath.close()
     }
 
-    private val MAX_LEAFS = 8
-    private val LEAF_FLOAT_TIME:Long = 0L
-    private var mAddTime:Long = 0L
-    private val leafInfos = ArrayList<Leaf>()
-
-    private fun genertateLeafs(){
+    private fun generateLeafs(){
         (0..MAX_LEAFS).forEach {
             val leaf = Leaf()
             leaf.rotateAngle = random.nextInt(360)
