@@ -63,7 +63,7 @@ class LeafLoadingView: View {
     private val leafInfos = ArrayList<Leaf>()
     private var leafWidth:Float = 0f
     private var leafHeight:Float = 0f
-    private val rotateCounts: Int = 36
+    private val rotateCounts: Int = 72
 
     private fun initPaint(){
         mBgPaint.isAntiAlias = true
@@ -133,7 +133,7 @@ class LeafLoadingView: View {
         mBgPaint.style = Paint.Style.FILL
         canvas?.drawCircle(px,py,mRadius - borderWidth,mBgPaint)
 
-        fengMatrix.postRotate(Math.toDegrees(360.0 / rotateCounts).toFloat(),px , py)
+        fengMatrix.postRotate((360.0 / rotateCounts).toFloat(),px , py)
         canvas?.drawBitmap(fengshanBitmap,fengMatrix,mBgPaint)
     }
 
@@ -180,7 +180,7 @@ class LeafLoadingView: View {
 
     private fun startAnim(){
         anim = ValueAnimator.ofInt(0, rotateCounts)
-        anim.duration = 3000
+        anim.duration = 1500
         anim.repeatCount = ValueAnimator.INFINITE
         anim.interpolator = LinearInterpolator()
         anim.addUpdateListener { animation ->
