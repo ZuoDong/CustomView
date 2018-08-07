@@ -6,70 +6,33 @@
     android:layout_height="match_parent"
     tools:context="com.dong.customviews.flowlayout.FlowLayoutActivity">
 
-    <com.dong.customviews.flowlayout.FlowLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#228634">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="我是火星一号"
-            style="@style/flow_item_bg"/>
+            android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="我是火星二号"
-            style="@style/flow_item_bg"/>
+            <com.dong.customviews.flowlayout.FlowLayout
+                android:id="@+id/flow_layout"
+                android:padding="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#228634">
+            </com.dong.customviews.flowlayout.FlowLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="人在塔在"
-            style="@style/flow_item_bg"/>
+            <com.dong.customviews.flowlayout.ExpandableFlowLayout
+                android:id="@+id/expand_flow_layout"
+                android:layout_marginTop="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#228634">
+            </com.dong.customviews.flowlayout.ExpandableFlowLayout>
 
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="表酱紫"
-            style="@style/flow_item_bg"/>
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="我要去月球"
-            style="@style/flow_item_bg"/>
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="火星在哪里"
-            style="@style/flow_item_bg"/>
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="我是火星二号的弟弟"
-            style="@style/flow_item_bg"/>
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="我是嫦娥号"
-            style="@style/flow_item_bg"/>
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="我是火星号"
-            style="@style/flow_item_bg"/>
-    </com.dong.customviews.flowlayout.FlowLayout>
+        </LinearLayout>
+    </ScrollView>
 
 </android.support.constraint.ConstraintLayout>

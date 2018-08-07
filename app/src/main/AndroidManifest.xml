@@ -22,7 +22,8 @@
         <activity android:name=".tickview.TickActivity" />
         <activity android:name=".polygonimageview.PolygonActivity" />
         <activity android:name=".LeafLoading.LeafLoadingActivity" />
-        <activity android:name=".pathmeasure.PathMeasureActivity"></activity>
+        <activity android:name=".pathmeasure.PathMeasureActivity" />
+        <activity android:name=".foldlayout.FoldLayoutActivity"></activity>
     </application>
 
 </manifest>
