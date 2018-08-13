@@ -8,6 +8,6 @@ class FoldLayoutActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        setContentView(R.layout.activity_fold_layout)
+        setContentView(R.layout.activity_fold_layout)
     }
 }

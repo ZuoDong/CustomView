@@ -10,6 +10,7 @@ import android.widget.BaseAdapter
 import android.widget.TextView
 import com.dong.customviews.LeafLoading.LeafLoadingActivity
 import com.dong.customviews.flowlayout.FlowLayoutActivity
+import com.dong.customviews.foldlayout.FoldLayoutActivity
 import com.dong.customviews.pathmeasure.PathMeasureActivity
 import com.dong.customviews.polygonimageview.PolygonActivity
 import com.dong.customviews.redpoint.RedPointActivity
@@ -32,6 +33,7 @@ class MainActivity : AppCompatActivity() {
         datas.add(ItemBean("多边形",PolygonActivity::class.java))
         datas.add(ItemBean("叶子进度条",LeafLoadingActivity::class.java))
         datas.add(ItemBean("PathMeasure",PathMeasureActivity::class.java))
+        datas.add(ItemBean("折叠窗",FoldLayoutActivity::class.java))
 
         list_view.adapter = object :BaseAdapter(){
             override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {

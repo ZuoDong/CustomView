@@ -7,3 +7,4 @@
 ![image](https://github.com/ZuoDong/CustomView/blob/master/app/raw/polygon.png)
 ![image](https://github.com/ZuoDong/CustomView/blob/master/app/raw/leafloading.gif)
 ![image](https://github.com/ZuoDong/CustomView/blob/master/app/raw/path_measure.gif)
+![image](https://github.com/ZuoDong/CustomView/blob/master/app/raw/fold_layout.gif)
