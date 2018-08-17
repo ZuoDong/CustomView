@@ -23,7 +23,8 @@
         <activity android:name=".polygonimageview.PolygonActivity" />
         <activity android:name=".LeafLoading.LeafLoadingActivity" />
         <activity android:name=".pathmeasure.PathMeasureActivity" />
-        <activity android:name=".foldlayout.FoldLayoutActivity"></activity>
+        <activity android:name=".foldlayout.FoldLayoutActivity" />
+        <activity android:name=".cameratansform.CameraTransActivity"></activity>
     </application>
 
 </manifest>

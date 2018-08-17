@@ -9,6 +9,8 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.TextView
 import com.dong.customviews.LeafLoading.LeafLoadingActivity
+import com.dong.customviews.cameratansform.CameraTransActivity
+import com.dong.customviews.cameratansform.Rotate3dAnimation
 import com.dong.customviews.flowlayout.FlowLayoutActivity
 import com.dong.customviews.foldlayout.FoldLayoutActivity
 import com.dong.customviews.pathmeasure.PathMeasureActivity
@@ -34,6 +36,7 @@ class MainActivity : AppCompatActivity() {
         datas.add(ItemBean("叶子进度条",LeafLoadingActivity::class.java))
         datas.add(ItemBean("PathMeasure",PathMeasureActivity::class.java))
         datas.add(ItemBean("折叠窗",FoldLayoutActivity::class.java))
+        datas.add(ItemBean("Camera3D旋转",CameraTransActivity::class.java))
 
         list_view.adapter = object :BaseAdapter(){
             override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
