@@ -8,3 +8,5 @@
 ![image](https://github.com/ZuoDong/CustomView/blob/master/app/raw/leafloading.gif)
 ![image](https://github.com/ZuoDong/CustomView/blob/master/app/raw/path_measure.gif)
 ![image](https://github.com/ZuoDong/CustomView/blob/master/app/raw/fold_layout.gif)
+![image](https://github.com/ZuoDong/CustomView/blob/master/app/raw/Camera3D.gif)
+![image](https://github.com/ZuoDong/CustomView/blob/master/app/raw/drawtext.png)
