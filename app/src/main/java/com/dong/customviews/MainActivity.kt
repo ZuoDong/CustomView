@@ -17,6 +17,7 @@ import com.dong.customviews.foldlayout.FoldLayoutActivity
 import com.dong.customviews.pathmeasure.PathMeasureActivity
 import com.dong.customviews.polygonimageview.PolygonActivity
 import com.dong.customviews.redpoint.RedPointActivity
+import com.dong.customviews.simpleviewpager.SimpleVPActivity
 import com.dong.customviews.tickview.TickActivity
 import com.dong.customviews.xformode.XforModeActivity
 import kotlinx.android.synthetic.main.activity_main.*
@@ -39,6 +40,7 @@ class MainActivity : AppCompatActivity() {
         datas.add(ItemBean("折叠窗",FoldLayoutActivity::class.java))
         datas.add(ItemBean("Camera3D旋转",CameraTransActivity::class.java))
         datas.add(ItemBean("绘制文字",DrawTextActivity::class.java))
+        datas.add(ItemBean("简单ViewPager",SimpleVPActivity::class.java))
 
         list_view.adapter = object :BaseAdapter(){
             override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
