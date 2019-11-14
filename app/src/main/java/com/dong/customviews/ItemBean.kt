@@ -1,6 +1,6 @@
 package com.dong.customviews
 
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 
 /**
  * 作者：zuo

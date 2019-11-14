@@ -3,7 +3,7 @@ package com.dong.customviews.redpoint
 import android.content.Context
 import android.graphics.*
 import android.graphics.drawable.AnimationDrawable
-import android.support.v7.content.res.AppCompatResources
+import androidx.appcompat.content.res.AppCompatResources
 import android.util.AttributeSet
 import android.view.Gravity
 import android.view.MotionEvent

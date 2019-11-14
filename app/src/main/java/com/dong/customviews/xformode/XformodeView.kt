@@ -7,7 +7,7 @@ import android.view.View
 import com.dong.customviews.R
 import android.graphics.Bitmap
 import android.graphics.drawable.Drawable
-import android.support.v7.content.res.AppCompatResources
+import androidx.appcompat.content.res.AppCompatResources
 import com.dong.customviews.utils.drawableToBitmap
 
 

@@ -1,6 +1,6 @@
 package com.dong.customviews.tickview
 
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.dong.customviews.R
 import kotlinx.android.synthetic.main.activity_tick.*
